@@ -17,6 +17,16 @@ angular.module('app')
             return $http.post(urlBase, entity);
         };
 
+        dataFactory.getOne=function (id) {
+            return $http.get(urlBase+'/getOne?Id=' +id);
+        };
+        dataFactory.update=function(entity){
+            return $http.put(urlBase,entity)
+        };
+        dataFactory.getAttach=function (id) {
+            return $http.get(urlBase+'/attach?Id=' +id)
+
+        }
         return dataFactory;
     }]);
 

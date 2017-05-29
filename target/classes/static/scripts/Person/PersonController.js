@@ -3,10 +3,7 @@
  */
 'use strict';
 
-angular.module('app').controller('PersonsCtrl', ['$scope', '$route', '$rootScope', '$routeParams', '$http', '$location', 'PersonService', function ($scope, $route, $rootScope, $routeParams, $http, $location, PersonService) {
-
-
-
+angular.module('app').controller('PersonsCtrl', ['$scope', '$route', '$rootScope', '$routeParams', '$http', '$location','PersonService','$modal', function ($scope, $route, $rootScope, $routeParams, $http, $location, PersonService,$modal) {
 
         $scope.person={
             "_id":"",
@@ -15,12 +12,16 @@ angular.module('app').controller('PersonsCtrl', ['$scope', '$route', '$rootScope
             "password":""
 
         }
-    $scope.addPerson = function () {
-        console.log("i'm here");
-        $scope.person["Content-Type"]="application/json";
-        PersonService.addPerson($scope.person);
-        console.log($scope.person);
-    }
 
+
+    $scope.getOne=function(){
+       PersonService.getOne($rootScope.connectedUser._id).then(function(response){
+           console.log($rootScope.connectedUser._id)
+           $scope.person=response.data;
+       },function(error){
+           console.log("get person:error");
+           }
+       )
+    };
 
 }]);

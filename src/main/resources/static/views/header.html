@@ -36,11 +36,16 @@
             <li class="dropdown text-normal nav-profile" dropdown is-open="status.isopenProfile">
                 <a style="color:black" href="javascript:;" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
                     <span>
-                        <span></span>
+                        <span>
+                             <span class="hidden-xs">
+                        <span>{{$root.connectedUser.lastName}} {{$root.connectedUser.firstName}} / {{$root.connectedUser.role}}</span>
+
+                    </span>
+                        </span>
                     </span>
                     <img src="../images/connectedUserIcone.png" alt="" class="img-circle img30_30">
                 </a>
-                <ul class="dropdown-menu with-arrow" style="margin-left : -100px">
+                <ul class="dropdown-menu " style="margin-left : 50px">
                     <li>
                         <a href="#/pages/profile">
                             <span data-i18n="Profile"></span>

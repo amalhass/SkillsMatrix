@@ -1,0 +1,80 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "angular-file-reader@^1.0.0",
+        "scope": null,
+        "escapedName": "angular-file-reader",
+        "name": "angular-file-reader",
+        "rawSpec": "^1.0.0",
+        "spec": ">=1.0.0 <2.0.0",
+        "type": "range"
+      },
+      "C:\\Users\\IBM_ADMIN\\Documents\\workspace-sts-3.8.4.RELEASE\\IbmSkillsMatrix\\node_modules\\angular-cropper"
+    ]
+  ],
+  "_from": "angular-file-reader@>=1.0.0 <2.0.0",
+  "_id": "angular-file-reader@1.0.0",
+  "_inCache": true,
+  "_location": "/angular-file-reader",
+  "_nodeVersion": "5.1.0",
+  "_npmUser": {
+    "name": "twhitbeck",
+    "email": "twhitbeck@gmail.com"
+  },
+  "_npmVersion": "3.3.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "angular-file-reader@^1.0.0",
+    "scope": null,
+    "escapedName": "angular-file-reader",
+    "name": "angular-file-reader",
+    "rawSpec": "^1.0.0",
+    "spec": ">=1.0.0 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/angular-cropper"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-file-reader/-/angular-file-reader-1.0.0.tgz",
+  "_shasum": "10c6ca3a2bff1695098774a80f0dba0298914436",
+  "_shrinkwrap": null,
+  "_spec": "angular-file-reader@^1.0.0",
+  "_where": "C:\\Users\\IBM_ADMIN\\Documents\\workspace-sts-3.8.4.RELEASE\\IbmSkillsMatrix\\node_modules\\angular-cropper",
+  "author": {
+    "name": "twhitbeck"
+  },
+  "bugs": {
+    "url": "https://github.com/twhitbeck/angular-file-reader/issues"
+  },
+  "dependencies": {},
+  "description": "Simple angular 1.x service for FileReader api",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "10c6ca3a2bff1695098774a80f0dba0298914436",
+    "tarball": "https://registry.npmjs.org/angular-file-reader/-/angular-file-reader-1.0.0.tgz"
+  },
+  "gitHead": "7f8090d59d5d94d2f4ccb4f04fbafca236d6aa64",
+  "homepage": "https://github.com/twhitbeck/angular-file-reader#readme",
+  "license": "ISC",
+  "main": "angular-file-reader.js",
+  "maintainers": [
+    {
+      "name": "twhitbeck",
+      "email": "twhitbeck@gmail.com"
+    }
+  ],
+  "name": "angular-file-reader",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "angular": "^1.4.8"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twhitbeck/angular-file-reader.git"
+  },
+  "scripts": {},
+  "version": "1.0.0"
+}

@@ -1,62 +1,58 @@
 
-<div class="page page-profile" >
-    <div class="row ">
+<div class="page page-profile"  ng-controller="ProfileCtrl">
+    <div class="row">
         <br>
-        <div class="panel panel-default col-md-offset-2">
+        <div class="panel panel-default col-md-offset-2"  >
             <div class="panel-body">
-                <div class="media block-update-card">
                     <div class="pull-left">
-                        <img class="media-object" src="../images/avatar_7.png" width="153px" height="153px" style="border-radius:4px;margin-top: -16px;margin-left:-16px" alt="...">
+                        <img class="media-object profile-pic upload-button" src="../images/avatar_7.png" width="153px" height="153px" style="border-radius:4px;margin-top: -16px;margin-left:-16px" alt="..."  ng-click="handleClick()"{{pageData.picture}}>
+
+                        <input class="file-upload" type="file" accept="image/*"  style="display: none"  ng-model="pageData.picture"/>
                     </div>
                     <div class="media-body update-card-body" style="margin-top: 12%">
 
-                            <div class="row">
+                            <div class="row" >
                                 <form class="form-inline">
-                                     <div>
+                                    <div class="row" >
                                        <div class="form-group">
                                           <label class="col-sm-2"><h5>Last Name:</h5></label>
-                                           <input  class="col-sm-4" type="text">
+                                           <input  class="col-sm-4" type="text"  ng-model="person.lastName" required>
                                            <label class="col-sm-2"><h5>First Name:</h5></label>
-                                           <input  class="col-sm-4" type="text">
+                                           <input  class="col-sm-4" type="text"  ng-model="person.firstName" required>
                                        </div>
-                                            </div>
-                                </form>
-                                <form class="form-inline">
-                                    <div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2" ><h5>Job:</h5></label>
-                                            <input  class="col-sm-4" type="text"style="padding-left: 103px">
-                                            <label class="col-sm-2"><h5>Role:</h5></label>
-                                            <input  class="col-sm-4" type="text">
+                                    </div>
+
+
+                                    <div class="row" >
+                                        <div class="form-inline">
+                                            <label class="col-sm-2"><h5>Job:</h5></label>
+                                            <input class="col-sm-4"  type="text"  ng-model="person.job" required>
+                                           <label class="col-sm-2" ><h5>Role:    </h5></label>
+                                           <input  class="col-sm-4" type="text"  ng-model="person.role" required>
                                         </div>
                                     </div>
-                                </form>
-                                <form class="form-inline">
-                                    <div>
-                                        <div class="form-group">
+                                    <div class="row" >
+                                        <div class="form-inline">
                                             <label class="col-sm-2" ><h5>Country:</h5></label>
-                                            <input  class="col-sm-4" type="text" style="padding-left: 80px">
+                                            <input  class="col-sm-4" type="text" ng-model="person.country" required>
                                             <label class="col-sm-2"><h5>Site:</h5></label>
-                                            <input  class="col-sm-4" type="text">
+                                            <input  class="col-sm-4" type="text" ng-model="person.site" required>
                                         </div>
                                     </div>
-                                </form>
-                                <form class="form-inline">
-                                    <div>
-                                        <div class="form-group">
+
+                                    <div class="row" >
+                                        <div class="form-inline">
                                             <label class="col-sm-2" ><h5>IBMId:</h5></label>
-                                            <input  class="col-sm-4" type="text"style="padding-left: 80px">
+                                            <input  class="col-sm-4" type="text" ng-model="person.ibmId" required>
                                             <label class="col-sm-2"><h5>Brand:</h5></label>
-                                            <input  class="col-sm-4" type="text">
+                                            <input  class="col-sm-4" type="text" ng-model="person.brand" required>
                                         </div>
                                     </div>
                                 </form>
                                 <br>
                             </div>
-
-
                     </div>
-                </div>
+
             </div>
         </div>
 </div>
@@ -67,48 +63,60 @@
             </div>
             <div class="panel-body">
                 <br>
+                <div class="row col-xs-offset-0" >
                 <form class="form-inline">
-                    <div>
-                        <div class="form-group">
                             <label class="col-sm-2" ><h5>Project Name:</h5></label>
-                            <input  class="col-sm-4" type="text"style="padding-left: 103px">
+                            <input  class="col-sm-4" list="project" type="text" ng-model="person.projectName" required>
                             <label class="col-sm-2"><h5>End of Project:</h5></label>
-                            <input  class="col-sm-4" type="text">
-                        </div>
-                    </div>
+                            <input  class="col-sm-4" type="date" ng-model="person.endOfProject" placeholder='MM-DD-YYYY' required>
                 </form>
-            </div>
+
+                <datalist id="project">
+                    <option>BDDF</option>
+                    <option>Skills Matrix</option>
+                    <option>BNPP</option>
+                </datalist>
+                </div>
+
         <br>
                 <form class="form-inline">
                     <div>
                         <div class="form-group col-xs-offset-3">
                             <label class="col-sm-4" ><h5>Use Rate(%):</h5></label>
-                            <input  class="col-sm-8" type="text">
+                            <input  class="col-sm-8" type="text" ng-model="person.useRate" required>
 
                         </div>
                     </div>
                 </form>
+            </div>
             <br>
             </div>
         </div>
     <div class="row">
         <div class="panel panel-default col-md-offset-2">
             <div class="panel-heading">
-                <h3 class="panel-title"><strong>Skills</strong></h3>
+                <h3 class="panel-title"><strong>Skills</strong>  <span class="glyphicon glyphicon-pencil pull-right" ng-click="openSkillsModal()"></span></h3>
+
             </div>
             <div class="panel-body">
                 <br>
+                <div class="row">
                 <form class="form-inline">
-                    <div>
-                        <div class="form-group">
-                           <textarea rows="5" cols="35" style="overflow: scroll"></textarea>
-                        </div>
-                    </div>
+                   <textarea rows="5" cols="35" style="overflow: scroll"></textarea>
+                            <input class="pull-right" type="file" placeholder="Choose your CV" style="padding-top:54px">
                 </form>
+                </div>
             </div>
             <br>
 
         </div>
     </div>
-    </div>
+    <input type="submit" value="Validate" class="btn btn-primary col-md-offset-11" ng-click="updatePerson(person)" >
 </div>
+<script type="text/ng-template" id="myModalContent.html" class="modal" >
+    <div class="modal-header" >
+        <h4 class="modal-title">Select Your Skills</h4></div>
+    <div class="modal-body">
+
+    </div>
+</script>

@@ -8,7 +8,7 @@ angular.module('app.auth', [])
         return {
             authLocal: function (requestAuth) {
                 config = {
-                    url: '/person/auth',
+                    url: '/auth',
                     method: "POST",
                     data: requestAuth
                 };
@@ -16,14 +16,14 @@ angular.module('app.auth', [])
             },
             getUser: function () {
                 config = {
-                    url: '/user',
+                    url: '/auth/user',
                     method: "GET"
                 };
                 return $http(config);
             },
             deconnexion: function () {
                 config = {
-                    url: '/person/deconnexion',
+                    url: '/auth/deconnexion',
                     method: "GET"
                 };
                 return $http(config);
@@ -58,33 +58,40 @@ angular.module('app.auth', [])
                             var elt = angular.element('.form-container');
                             $animate.addClass(elt, 'shake', function () {
                                 $animate.removeClass(elt, 'shake');
+
                             });
                         });
                 };
 
-                $scope.ouvrirModelSuppresion = function () {
-                    console.log();
-                    // $rootScope.etat = null;
+                $scope.person={
+                    "_id":"",
+                    "firstName":"",
+                    "lastName":"",
+                    "password":""
+
+                };
+                $scope.openModal = function () {
+                    $scope.person["Content-Type"]="application/json";
                     $modal.open({
                         templateUrl: 'myModalContent.html',
-                        backdrop: true,
-                        controller: function ($scope, $modalInstance) {
+                        backdrop: true, controller: function ($scope, $modalInstance,PersonService) {
                             $scope.annulerSuppresion = function () {
                                 $modalInstance.dismiss('cancel');
+
                             };
-                            $scope.doSupprimer = function () {
-
-                                promise.success(function (status) {
-
+                            $scope.addPerson = function(){
+                                var promise = PersonService.addPerson($scope.person);
+                                promise.success(function(status){
                                     $modalInstance.dismiss('cancel');
+                                    toastr.success('Registration Successful',"");
 
-
-                                }).error(function (data, status) {
-
+                                }).error(function(data,status){
+                                        toastr.error('Email is already taken',"");
                                 });
 
                             };
                         }
+
                     });
                 }
             }]);

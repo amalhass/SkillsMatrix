@@ -25,7 +25,7 @@
                                     <span class="glyphicon glyphicon-user"></span>
                                 </span>
                                             <!-- Utilisation de ng-model pour enregistrer la valeur du champ automatiquement (databinding). -->
-                                            <input type="text" ng-model="login._id" class="form-control" placeholder="login"
+                                            <input type="email" ng-model="login._id" class="form-control" placeholder="login"
                                             >
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@
                                         <!-- Utilisation de ng-click pour déclencher l'action de login : appel d'une méthode du controleur défini au début de ce fichier : "AuthenticationController as ac". -->
                                         <button ng-click="ac.submit()" class="btn btn-block login">Log In</button>
                                         <br>
-                                        <button ng-click="ouvrirModelSuppresion()" class="btn  btn-block new_account">
+                                        <button ng-controller="PersonsCtrl" ng-click="openModal()" class="btn  btn-block new_account">
                                             Create a new account
                                         </button>
                                     </div>
@@ -83,12 +83,11 @@
 
     </body>
 </div>
-<script type="text/ng-template" id="myModalContent.html"  >
+<script type="text/ng-template" id="myModalContent.html" class="modal" >
     <div class="modal-header" >
-        <button type="button" class="close" ng-click="annulerSuppresion()">&times;</button>
         <h4 class="modal-title">Registration</h4>
     </div>
-    <div class="modal-body" ng-controller="PersonsCtrl">
+    <div class="modal-body">
         <form class="form-horizontal"  ng-submit="addPerson()">
             <div class="form-group">
                 <label class="col-sm-4 control-label">First Name</label>
@@ -105,16 +104,17 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label">Email</label>
                 <div class="col-sm-6">
-                    <input type="email" class="form-control" ng-model="person._id" required>
+                    <input type="email" class="form-control" ng-model="person._id" placeholder="ex:amal.hassouni-isc.france@ibm.com" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label">Password</label>
                 <div class="col-sm-6">
                     <input type="password" class="form-control" ng-model="person.password" required>
+
                 </div>
             </div>
-            <input type="submit" value="Ajouter" class="btn btn-primary"></input>
+            <input type="submit" value="Register"  class="btn btn-primary">
         </form>
     </div>
 </script>

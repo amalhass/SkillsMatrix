@@ -7,6 +7,11 @@
         path = $location.path();
         return _.contains(['/404', '/pages/500', '/pages/login', '/pages/signin', '/pages/signin1', '/pages/signin2', '/pages/signup', '/pages/signup1', '/pages/signup2', '/pages/forgot', '/pages/lock-screen'], path);
       };
+          $scope.hidenav = function() {
+              var path;
+              path = $location.path();
+              return _.contains(['/pages/profile'], path);
+          };
       $scope.deconnexion = function() {
     	  $rootScope.firstConnection = true;
         $rootScope.connectedUser = null;

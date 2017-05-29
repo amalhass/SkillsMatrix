@@ -2,7 +2,7 @@
     'use strict';
     var app = angular.module(
         'app',
-        [ 'ngRoute', 'ngAnimate', 'ui.bootstrap', 'easypiechart',
+        [ 'ngStorage','dndLists','ngRoute', 'ngAnimate', 'ui.bootstrap', 'easypiechart',
             'mgo-angular-wizard', 'textAngular', 'ui.tree',
             'ngTagsInput', 'app.authentication', 'app.enseignants',
             'app.formations', 'app.ue', 'app.ui.ctrls',
@@ -100,6 +100,21 @@
             });/*
 			 * .otherwise({ redirectTo: '/404' });
 			 */
+            $urlRouterProvider.otherwise(function($injector, $location) {
+                var AuthService = $injector.get('AuthService');
+
+                AuthService.getUser().success(function(data) {
+                    if (data) {
+                        $location.path("/dashboard");
+                    } else {
+                        $location.path("/pages/signin");
+                    }
+
+                }).error(function(data) {
+                    $location.path("/pages/signin");
+                });
+
+            });
 
         } ]).run(function ($rootScope, $route, $location, AuthService) {
         $rootScope.$on("$routeChangeStart", function (e, to) {
@@ -108,7 +123,7 @@
             }
 
             if (to != null && to.notLoggedNeeded) {
-                AuthService.authLocal().success(function (data) {
+                AuthService.getUser().success(function (data) {
                     if(data)
                         $location.path("/");
 
@@ -118,6 +133,21 @@
                     $location.path("/pages/signin");
                 });
             }
+            AuthService.getUser().success(function (data) {
+                if(data){
+                    if($rootScope.firstConnection){
+                        $rootScope.connectedUser=data;
+                        console.log($rootScope.connectedUser);
+                    }
+                    e.preventDefault();
+                }
+                else {
+                    $location.path("/pages/signin");
+                }
+
+            }).error(function (data) {
+                console.log("error");
+            });
 
 
         });
