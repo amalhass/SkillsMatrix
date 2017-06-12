@@ -2,10 +2,9 @@
     'use strict';
     var app = angular.module(
         'app',
-        [ 'ngStorage','dndLists','ngRoute', 'ngAnimate', 'ui.bootstrap', 'easypiechart',
+        [ 'ng-file-model','ngStorage','dndLists','ngRoute', 'ngAnimate', 'ui.bootstrap', 'easypiechart',
             'mgo-angular-wizard', 'textAngular', 'ui.tree',
-            'ngTagsInput', 'app.authentication', 'app.enseignants',
-            'app.formations', 'app.ue', 'app.ui.ctrls',
+            'ngTagsInput', 'app.authentication', 'app.ui.ctrls',
             'app.ui.directives', 'app.ui.services', 'app.controllers',
             'app.directives', 'app.form.validation',
             'app.ui.form.ctrls', 'app.ui.form.directives',
@@ -18,6 +17,8 @@
 
             }).when('/dashboard', {
                 templateUrl : 'views/dashboard.html'
+            }).when('localhost:8080/person/upload', {
+                templateUrl : 'views/pages/profile.html'
             }).when('/ui/typography', {
                 templateUrl : 'views/ui/typography.html'
             }).when('/ui/buttons', {

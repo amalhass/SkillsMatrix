@@ -23,10 +23,7 @@ angular.module('app')
         dataFactory.update=function(entity){
             return $http.put(urlBase,entity)
         };
-        dataFactory.getAttach=function (id) {
-            return $http.get(urlBase+'/attach?Id=' +id)
 
-        }
         return dataFactory;
     }]);
 

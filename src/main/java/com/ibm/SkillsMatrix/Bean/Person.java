@@ -1,13 +1,19 @@
 package com.ibm.SkillsMatrix.Bean;
 
-import java.io.InputStream;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import com.cloudant.client.api.model.Attachment;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @EntityScan
+@JsonSerialize
+
 public class Person {
 
 	private String _id;
@@ -25,8 +31,9 @@ public class Person {
 	private String ProjectName;
 	private Date EndOfProject;
 	private String UseRate;
-	private InputStream _attachments;
+	private ArrayList<String> Skills;
 
+	
 	public Person() {
 
 	}
@@ -164,12 +171,13 @@ public class Person {
 		UseRate = useRate;
 	}
 
-	public InputStream get_attachment() {
-		return _attachments;
+	
+	public ArrayList<String> getSkills() {
+		return Skills;
 	}
 
-	public void set_attachement(InputStream _attachment) {
-		this._attachments = _attachment;
+	public void setSkills(ArrayList<String> skills) {
+		Skills = skills;
 	}
 
 }
