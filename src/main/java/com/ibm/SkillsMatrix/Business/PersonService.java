@@ -15,7 +15,7 @@ public class PersonService {
 	@Autowired
 	Database skillsmatrixdb;
 
-	
+
 
 	/*
 	 * Cette fonction permet de récupérer toutes les personnes stockées dans la

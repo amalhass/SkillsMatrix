@@ -28,7 +28,65 @@
                             <div class="row">
                                 <div class="form-inline">
                                     <label class="col-sm-2"><h5>Job:</h5></label>
-                                    <input class="col-sm-4" type="text" ng-model="person.job" required>
+                                    <select class="col-sm-4" style="height: 33px;" ng-model="person.job" required>
+                                        <option disabled selected value></option>
+                                        <option>Application Architect</option>
+                                        <option>Application Consultant</option>
+                                        <option>Application Database Administrator</option>
+                                        <option>Application Developer</option>
+                                        <option>Architect</option>
+                                        <option>Assistant/Secretary</option>
+                                        <option>Business Advisor</option>
+                                        <option>Business Analyst</option>
+                                        <option>Business Area Manager</option>
+                                        <option>Business Information Management Specialist</option>
+                                        <option>Business Operations Professional</option>
+                                        <option>Business Programs Manager</option>
+                                        <option>Business Sales & Delivery Executive</option>
+                                        <option>Business Transformation Consultant</option>
+                                        <option>Capacity Management Professional</option>
+                                        <option>Compliance Audit & Risk Assurer</option>
+                                        <option>Compliance Tester</option>
+                                        <option>Contract Commercial Manager</option>
+                                        <option>Contract Management Advisor</option>
+                                        <option>Contract Management Specialist</option>
+                                        <option>Data Management Support Specialist</option>
+                                        <option>Data Scientist</option>
+                                        <option>Data Specialist</option>
+                                        <option>Delivery Project Executive</option>
+                                        <option>Designer</option>
+                                        <option>Executive</option>
+                                        <option>Financial Analyst</option>
+                                        <option>Functional Manager</option>
+                                        <option>Industry Consultant</option>
+                                        <option>Information Architect</option>
+                                        <option>Infrastructure Architect</option>
+                                        <option>Infrastructure Specialist</option>
+                                        <option>Learning Consultant</option>
+                                        <option>Measurements & Reporting Analyst</option>
+                                        <option>Package Solution Consultant</option>
+                                        <option>Packaged Application Enablement Specialist</option>
+                                        <option>People Manager</option>
+                                        <option>Performance & Optimization Professional</option>
+                                        <option>Project Administrator</option>
+                                        <option>Project Executive</option>
+                                        <option>Project Manager</option>
+                                        <option>Project Staffing Professional</option>
+                                        <option>Quality Assurance Professional</option>
+                                        <option>Recruitment Professional</option>
+                                        <option>Resource Staffing Professional</option>
+                                        <option>Security Consultant</option>
+                                        <option>Solution Manager</option>
+                                        <option>Solution Representative</option>
+                                        <option>Strategy Consultant</option>
+                                        <option>Support Center Representative</option>
+                                        <option>Systems Engineering Professional</option>
+                                        <option>Technical Consultant</option>
+                                        <option>Technical Solution Architect</option>
+                                        <option>Technical Solution Manager</option>
+                                        <option>Technical Team Leader</option>
+                                        <option>Test Architect</option>
+                                    </select>
                                     <label class="col-sm-2"><h5>Role: </h5></label>
                                     <select class="col-sm-4" style="height: 33px;" ng-model="person.role" required>
                                         <option disabled selected value></option>
@@ -309,7 +367,7 @@
                                         <option value="Zambia">Zambia</option>
                                         <option value="Zimbabwe">Zimbabwe</option>
                                     </select>
-                                    <label class="col-sm-2"><h5>Site:</h5></label>
+                                    <label class="col-sm-2"><h5>Location:</h5></label>
                                     <select class="col-sm-4" style="height: 33px;" ng-model="person.site" required>
                                         <option disabled selected value></option>
                                         <option>IBM CIC Lille</option>
@@ -327,14 +385,14 @@
                                     <label class="col-sm-2"><h5>Band:</h5></label>
                                     <select class="col-sm-4" style="height: 33px;" ng-model="person.brand" required>
                                         <option disabled selected value></option>
-                                        <option>4-Apprenti/Stagiaire</option>
-                                        <option>6G-Programmeur</option>
-                                        <option>6A-Programmeur expérimenté</option>
-                                        <option>6B-Analyste Programmeur</option>
-                                        <option>7A-Analyste Système</option>
-                                        <option>7B-Analyste Système expérimenté</option>
+                                        <option>4-Apprentice/Intern</option>
+                                        <option>6G-Programmer</option>
+                                        <option>6A-Experienced programmer</option>
+                                        <option>6B-Analyst Programmer</option>
+                                        <option>7A-Analyst System</option>
+                                        <option>7B-Experienced Analyst System</option>
                                         <option>8-Manager</option>
-                                        <option>9-Manager expérimenté</option>
+                                        <option>9-Experienced Experienced Manager</option>
                                     </select>
                                 </div>
                             </div>
@@ -358,8 +416,8 @@
                         <label class="col-sm-2"><h5>Project Name:</h5></label>
                         <input class="col-sm-4" id="search" name="search" list="project" type="text"
                                ng-model="person.projectName" required>
-                        <label class="col-sm-2"><h5>End of Project:</h5></label>
-                        <input class="col-sm-4" type="date" ng-model="person.endOfProject" placeholder='MM-DD-YYYY'
+                        <label class="col-sm-2"><h5>Start of Project:</h5></label>
+                        <input class="col-sm-4" type="date" ng-model="person.startOfProject" placeholder='MM-DD-YYYY'
                                required>
                     </form>
 
@@ -434,76 +492,321 @@
                 </div>
 
                 <br>
-                <form class="form-inline">
-                    <div>
-                        <div class="form-group col-xs-offset-3">
-                            <label class="col-sm-4"><h5>Use Rate(%):</h5></label>
-                            <input class="col-sm-8" type="text" ng-model="person.useRate" required>
+                <div class="row col-xs-offset-0">
+                    <form class="form-inline">
+                        <label class="col-sm-2"><h5>Use Rate (%):</h5></label>
+                        <input class="col-sm-4" type="text" ng-model="person.useRate" required>
+                        <label class="col-sm-2"><h5>End of Project:</h5></label>
+                        <input class="col-sm-4" type="date" ng-model="person.endOfProject" placeholder='MM-DD-YYYY'
+                               required>
+                    </form>
 
-                        </div>
-                    </div>
-                </form>
+
+                </div>
+
             </div>
             <br>
         </div>
+
     </div>
     <div class="row">
-        <div class="panel panel-default col-md-offset-2">
+        <div class="panel panel-default col-md-offset-2 col-sm-5">
             <div class="panel-heading">
-                <h3 class="panel-title"><strong>Skills</strong> <span class="glyphicon glyphicon-pencil pull-right" ng-click="openSkillsModal()"></span></h3>
+                <h3 class="panel-title"><strong>Skills</strong> <span class="glyphicon glyphicon-pencil pull-right"
+                                                                      ng-click="openSkillsModal()"></span></h3>
 
             </div>
             <div class="panel-body">
                 <br>
                 <div class="row">
-                    <iframe name="hiddenFrame" class="hide"></iframe>
-                     <form class="form-inline" method="POST" enctype="multipart/form-data" action="http://localhost:8080/person/upload" target="hiddenFrame">
-                        <textarea class="col-sm-5" rows="5" cols="35" style="overflow: scroll" ng-model="person.skills" >
 
-                        </textarea>
-                      
-                        <input class="col-sm-4 col-xs-offset-2" type="file" name="uploadedFile" style="padding-top: 29px;">
-
-                        <button  style="margin-top: 28px;" type="submit"> <span class="glyphicon glyphicon-upload"></span></button>
-
-                    </form>
+                    <div>
+                        <table class="table table-hover table-responsive">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <div class="th">
+                                        Skill
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="th">
+                                        Level
+                                    </div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody style="overflow: auto">
+                            <tr ng-repeat="item in person.skills">
+                                <td ng-model="item.name">{{item.name}}</td>
+                                <td ng-model="item.level">{{item.level}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>
             <br>
 
         </div>
+        <div class="panel panel-default col-md-offset-1 col-sm-4">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>CV</strong></h3>
+            </div>
+            <div class="panel-body"></div>
+            <div class="row">
+                <iframe name="hiddenFrame" class="hide"></iframe>
+                <form class="form-inline" method="POST" enctype="multipart/form-data"
+                      action="http://localhost:8080/person/upload" target="hiddenFrame">
+                    <div>
+                        <input class="col-xs-8" type="file" name="uploadedFile" style="padding-top: 29px;">
+
+                        <button style="margin-top: 30px;font-size: 14px" type="submit">Upload</button>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+            </div>
+        </div>
+
     </div>
     <input type="submit" value="Validate" class="btn btn-primary col-md-offset-11" ng-click="updatePerson(person)">
 </div>
 
 
-<script type="text/ng-template" id="myModalContent.html" >
+<script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
         <h4 class="modal-title">Select Your Skills</h4>
     </div>
     <div class="modal-body">
         <div class="row">
-            <select class="form-control" id="skills" data-ng-model="textselectionne" data-ng-change="selectSkill()" required>
+
+            <select name="competence" class="form-control" id="skills" data-ng-model="textselectionne"
+                    data-ng-change="selectSkill()" required>
                 <option disabled selected value>Select Skills</option>
-                <option>JAVA</option>
-                <option>BI</option>
+                <option>PL/SQl</option>
+                <option>Oracle 10g</option>
+                <option>Oracle 11g</option>
+                <option>Oracle 12c</option>
+                <option>ODB via access</option>
+                <option>SQL server 2007</option>
+                <option>SQL server 2005</option>
+                <option>SQL server 2014(MSSQL)</option>
+                <option>JEE 6/EJB 3.1</option>
+                <option>Spring 4</option>
+                <option>Spring Security</option>
+                <option>Spring Boot</option>
+                <option>JPA 2/Hibernate 4</option>
+                <option>Jax-WS (WSDL webservices)</option>
+                <option>Jax-RS (REST webservices)</option>
+                <option>Node JS</option>
+                <option>Ruby on Rails</option>
+                <option>PHP</option>
+                <option>Django</option>
+                <option>Other web frameworks (Python/Perl/Ruby)</option>
+                <option>jQuery</option>
+                <option>Angular JS</option>
+                <option>Bootstrap</option>
+                <option>HTML5</option>
+                <option>Typescript</option>
+                <option>ECMA 6</option>
+                <option>REACT JS</option>
+                <option>Websphere MQ</option>
+                <option>JMS 1.1/2.0</option>
+                <option>RabbitMQ</option>
+                <option>ActiveMQ</option>
+                <option>Camel</option>
+                <option>XML</option>
+                <option>Jasper</option>
+                <option>Velocity</option>
+                <option>FreeMarker</option>
+                <option>Kshell</option>
+                <option>Shell unix</option>
+                <option>Hadoop</option>
+                <option>BigInsights</option>
+                <option>Spark</option>
+                <option>OLTP data models</option>
+                <option>OLAP data models</option>
+                <option>ODB via access</option>
+                <option>C/C++</option>
+                <option>Delphi Embarcadero</option>
+                <option>BO XIR2</option>
+                <option>BO XIr3 SP4</option>
+                <option>Cognos</option>
+                <option>Datastage 8.1</option>
+                <option>Eclipse</option>
+                <option>Sonar</option>
+                <option>SVN</option>
+                <option>Dimensions 10.1)</option>
+                <option>Nexus</option>
+                <option>Git</option>
+                <option>Intellij</option>
+                <option>Maven</option>
+                <option>WebStorm</option>
+                <option>Jenkins</option>
+                <option>Atom</option>
+                <option>ARA</option>
+                <option>PyCharm</option>
+                <option>WAS6</option>
+                <option>WAS7</option>
+                <option>WAS 8/8.5.5.5</option>
+                <option>WAS Liberty</option>
+                <option>Tomcat</option>
+                <option>JBoss</option>
+                <option>Apache</option>
+                <option>Azure</option>
+                <option>AWS</option>
+                <option>Bluemix</option>
+                <option>Jazz Hub (Bluemix/DevOps)</option>
+                <option>CloudFoundry</option>
+                <option>OpenStack</option>
+                <option>OpenShift</option>
+                <option>VMWare</option>
+                <option>KVM</option>
+                <option>VirtualBox</option>
+                <option>Docker</option>
+                <option>Kubernetes</option>
+                <option>Android</option>
+                <option>iOS</option>
+                <option>Windows 10</option>
+                <option>Microsoft Analysis Services</option>
+                <option>Office</option>
+                <option>VBA</option>
+                <option>.NET 2.0</option>
+                <option>IIS</option>
+                <option>Add-In Excel</option>
+                <option>progiciel EPM 2007 (Project Server 2007, sharepoint 2007, MSP 2007)</option>
+                <option>Microsoft Integration Services</option>
+                <option>Microsoft Reporting Services</option>
+                <option>Power AMC</option>
+                <option>EssBase / Hypérion 9</option>
+                <option>JIRA</option>
+                <option>PVCS Dimensions</option>
+                <option>Spring batch</option>
+                <option>Java 8</option>
+                <option>Liberty Core</option>
+                <option>MQ / JMS</option>
                 <option>Angular</option>
-                <option>Oracle DataBase</option>
+                <option>groovy</option>
+                <option>Hary</option>
+                <option>JIRA v4</option>
+                <option>JIRA v5</option>
+                <option>Functional tesing</option>
+                <option>Automated Testing</option>
+                <option>White Box</option>
+                <option>Black Box</option>
+                <option>Grey Box</option>
+                <option>Integration Testing</option>
+                <option>System Testing</option>
+                <option>User Acceptance Testing</option>
+                <option>Performance Testging</option>
+                <option>Test Planning</option>
+                <option>Test Control</option>
+                <option>Test Implementation</option>
+                <option>Test Reporting</option>
+                <option>Defect Management</option>
+                <option>RTC</option>
+                <option>HP Center/ALM</option>
+                <option>Bugzilla</option>
+                <option>RFT</option>
+                <option>RPT</option>
+                <option>QTP</option>
+                <option>Selenium</option>
+                <option>SQL Developer</option>
+                <option>Oracle 11,11.5</option>
+                <option>Test Data</option>
+                <option>Sketch</option>
+                <option>Adobe Suite</option>
+                <option>Global Vision</option>
+                <option>MIRO</option>
+                <option>DALI</option>
+                <option>BGPC</option>
+                <option>Forecast</option>
+                <option>Directives Group</option>
+                <option>Queras</option>
+                <option>Contrast</option>
+                <option>Aurora</option>
+                <option>2OPC (ORC)</option>
+                <option>Back Testing</option>
+                <option>Stress Testing</option>
+                <option>BMRC</option>
+                <option>SYRACUSE</option>
+                <option>CRT</option>
+                <option>CAPRI WEB</option>
+                <option>VINCI AE</option>
+                <option>SUDEST</option>
+                <option>ACRTUAR(Share)</option>
+                <option>PEPS(Share)</option>
+                <option>CONSO(Share)</option>
+                <option>DRACONIS</option>
+                <option>KAPLAN</option>
+                <option>PARADIGME</option>
+                <option>BMT</option>
+                <option>PTLREV(CHORUS)</option>
+                <option>ARC</option>
+                <option>ARCBI</option>
+                <option>BALI</option>
+                <option>FACT</option>
+                <option>CASTING</option>
+                <option>MARGITTE</option>
+                <option>BIV</option>
+                <option>NSA</option>
+                <option>SYFACT</option>
+                <option>ABC</option>
+                <option>OCOP/COPIF</option>
+                <option>SUN</option>
+                <option>REGLISS</option>
+                <option>SINFOC</option>
+                <option>SUN Continuity</option>
+                <option>EP</option>
+                <option>ROKRI</option>
+                <option>Vigilance</option>
+                <option>COSI</option>
+                <option>Infocentre GFC</option>
+                <option>CORE</option>
+                <option>Archivage Shine</option>
+                <option>SWIFT Observer</option>
+                <option>MBAW</option>
+                <option>ASAP</option>
+                <option>RTS</option>
+                <option>MAESTRO</option>
+                <option>ACE</option>
+                <option>COCPIT</option>
+                <option>MOZART</option>
+                <option>METEO</option>
+                <option>REFWEB</option>
+                <option>LINK</option>
+                <option>SPEND ANALYSIS</option>
+                <option>IRESA</option>
+                <option>ITRAVEL</option>
+                <option>OSACA</option>
+                <option>ARIBA</option>
+                <option>Fleximmo</option>
+                <option>Connecteur Ptop</option>
+                <option>French</option>
+                <option>English</option>
+                <option>FSS(finance skills)</option>
             </select>
+
             <br>
             <div class="simpleDemo">
-            <ul dnd-list="models.lists.A" style="padding-left: 0px;">
-                <li ng-repeat="item in models.lists.A"
-                    dnd-draggable="item"
-                    dnd-moved="models.lists.A.splice($index, 1)"
-                    dnd-effect-allowed="move"
-                    dnd-selected="models.selected = item"
-                    ng-class="{'selected': models.selected === item}">
-                    <button type="button" class="fermer pull-right" ng-click="deleteSkill($index)">&times;</button>
-                    {{item.skill}}
-                </li>
-            </ul>
+                <ul dnd-list="models.lists.A" style="padding-left: 0px;">
+                    <li ng-repeat="item in models.lists.A"
+                        dnd-draggable="item"
+                        dnd-moved="models.lists.A.splice($index, 1)"
+                        dnd-effect-allowed="move"
+                        dnd-selected="models.selected = item"
+                        ng-class="{'selected': models.selected === item}">
+                        <button type="button" class="fermer pull-right" ng-click="deleteSkill($index)">&times;</button>
+                        {{item.skill}}
+                        <div class="pull-right"><span class="fa fa-star-o "
+                                                      data-ng-repeat="number in [1,2,3] track by $index"
+                                                      data-ng-click="setStars($index)"
+                                                      data-ng-style="litStars($index)"></span></div>
+                    </li>
+                </ul>
             </div>
         </div>
         <br><br>

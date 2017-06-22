@@ -18,12 +18,15 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
         "ibmId": "",
         "brand": "",
         "projectName": "",
+        "startOfProject": "",
         "endOfProject": "",
         "useRate": "",
-        "skills":[]
-    }
+        "skills": [{"name": "", "level": ""}]
+    };
 
     $scope.updatePerson = function (person) {
+        // JSON.stringfy($rootScope.person.skills);
+        //angular.toJson($rootScope.person.skills);
         PersonService.update(person).then(function (response) {
             $location.path("/dashboard");
         }, function (error) {
@@ -34,8 +37,7 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
     };
     $scope.getOne = function () {
         PersonService.getOne($rootScope.connectedUser._id).then(function (response) {
-                console.log("i'm here");
-            $rootScope.person = response.data;
+                $rootScope.person = response.data;
             }, function (error) {
                 console.log("get person:error");
             }
@@ -59,65 +61,96 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
                     lists: {"A": []}
                 };
 
-                $scope.selectSkill=function () {
+                $scope.selectSkill = function () {
                     var selectElmt = document.getElementById("skills");
                     var textselectionne = selectElmt.options[selectElmt.selectedIndex].text;
-                    var myObject={"skill":[]};
-                    myObject.skill=textselectionne;
+                    var myObject = {"skill": []};
+                    myObject.skill = textselectionne;
                     $scope.models.lists.A.push(myObject);
 
-                }
+                };
 
-                // Model to JSON for demo purpose
-                $scope.$watch('models', function(model) {
+
+                $scope.$watch('models', function (model) {
                     $scope.modelAsJson = angular.toJson(model, true);
                 }, true);
 
-                $scope.deleteSkill=function (index) {
-                    $scope.models.lists.A.splice(index,1);
-                }
-                $scope.validerSkills=function () {
+                $scope.deleteSkill = function (index) {
+                    $scope.models.lists.A.splice(index, 1);
+                };
+                $scope.validerSkills = function () {
 
-                    var list=[];
-                    angular.forEach($scope.models.lists.A,function (data) {
+                    var list = [];
+                    angular.forEach($scope.models.lists.A, function (data) {
                         list.push(data.skill);
                     });
-                    if(list.length>0)
-                        $rootScope.person.skills=list.toString();
-                        $modalInstance.dismiss('cancel');
-                        console.log( $rootScope.person.skills);
+
+                    if (list.length > 0) {
+                        for (var i = 0; i < list.length; i++) {
+                            $rootScope.person.skills.name = list[i];
+
+                            switch ($scope.stars) {
+                                case 1 :
+                                    $rootScope.person.skills.level = "Beginner skills";
+                                    break;
+                                case 2:
+                                    $rootScope.person.skills.level = "Intermediate";
+                                    break;
+                                case 3:
+                                    $rootScope.person.skills.level = "Senior";
+                                    break;
+                            }
+                            var obj = {"name": $rootScope.person.skills.name, "level": $rootScope.person.skills.level}
+                            $rootScope.person.skills.push(obj);
+                        }
+                    }
+                    $modalInstance.dismiss('cancel');
+                    console.log($rootScope.person.skills);
+
+                };
+                $scope.stars = 0;
+                $scope.setStars = function (value) {
+                    $scope.stars = value + 1;
+                };
+                $scope.litStars = function(value){
+                    if($scope.stars>value){
+                        return { "color" : "yellow" };
+                    }
+                    else {
+                        return { "color" : "grey" };
+                    }
                 };
 
-            }
 
+
+            }
 
         });
     };
 
 
+    //Upload image from local
+    $(document).ready(function () {
 
+        var readURL = function (input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-    /* //Upload image from local
-     $(document).ready(function() {
+                reader.onload = function (e) {
+                    $('.profile-pic').attr('src', e.target.result);
+                }
 
-     var readURL = function(input) {
-     if (input.files && input.files[0]) {
-     var reader = new FileReader();
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $(".file-upload").on('change', function () {
+            readURL(this);
+        });
+        $(".upload-button").on('click', function () {
+            $(".file-upload").click();
+        });
+    });
 
-     reader.onload = function (e) {
-     $('.profile-pic').attr('src', e.target.result);
-     }
-
-     reader.readAsDataURL(input.files[0]);
-     }
-     }
-     $(".file-upload").on('change', function(){
-     readURL(this);
-     });
-     $(".upload-button").on('click', function() {
-     $(".file-upload").click();
-     });
-     });*/
 
     $('.controls').on("input click", "#search", function (e) {
         var val = $(this).val();

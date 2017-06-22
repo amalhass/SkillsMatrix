@@ -11957,6 +11957,6 @@ tr.formation:hover {
  * Show selected elements in green
  */
 .simpleDemo ul[dnd-list] li.selected {
-  background-color: #dff0d8;
+  background-color: #FFF;
   color: #3c763d;
 }

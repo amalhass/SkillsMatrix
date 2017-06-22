@@ -2,17 +2,9 @@ package com.ibm.SkillsMatrix.Bean;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 @EntityScan
-@JsonSerialize
 
 public class Person {
 
@@ -29,11 +21,11 @@ public class Person {
 	private String IbmId;
 	private String Brand;
 	private String ProjectName;
+	private Date StartOfProject;
 	private Date EndOfProject;
 	private String UseRate;
-	private ArrayList<String> Skills;
+	private ArrayList<Skills> Skills;
 
-	
 	public Person() {
 
 	}
@@ -155,6 +147,14 @@ public class Person {
 		ProjectName = projectName;
 	}
 
+	public Date getStartOfProject() {
+		return StartOfProject;
+	}
+
+	public void setStartOfProject(Date startOfProject) {
+		StartOfProject = startOfProject;
+	}
+
 	public Date getEndOfProject() {
 		return EndOfProject;
 	}
@@ -171,12 +171,11 @@ public class Person {
 		UseRate = useRate;
 	}
 
-	
-	public ArrayList<String> getSkills() {
+	public ArrayList<Skills> getSkills() {
 		return Skills;
 	}
 
-	public void setSkills(ArrayList<String> skills) {
+	public void setSkills(ArrayList<Skills> skills) {
 		Skills = skills;
 	}
 

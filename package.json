@@ -38,6 +38,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "angular-star-rating": "^3.0.0",
     "angular-ui-router": "^0.4.2"
   }
 }
