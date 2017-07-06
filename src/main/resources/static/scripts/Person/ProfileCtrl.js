@@ -21,13 +21,15 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
         "startOfProject": "",
         "endOfProject": "",
         "useRate": "",
-        "skills": [{"name": "", "level": ""}]
+        "skills": [{"name": "", "level": ""}],
+        "attachment":""
     };
-
+    var img;
     $scope.updatePerson = function (person) {
-        // JSON.stringfy($rootScope.person.skills);
-        //angular.toJson($rootScope.person.skills);
         PersonService.update(person).then(function (response) {
+
+            //$scope.folder="../images";
+            $scope.imageName=$rootScope.connectedUser.firstName+".jpg";
             $location.path("/dashboard");
         }, function (error) {
             console.log("update:error");
@@ -37,7 +39,11 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
     };
     $scope.getOne = function () {
         PersonService.getOne($rootScope.connectedUser._id).then(function (response) {
+
                 $rootScope.person = response.data;
+            //$scope.folder="../images";
+            $scope.imageName=$rootScope.connectedUser.firstName+".jpg";
+
             }, function (error) {
                 console.log("get person:error");
             }
@@ -129,46 +135,131 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
     };
 
 
-    //Upload image from local
-    $(document).ready(function () {
 
-        var readURL = function (input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $('.profile-pic').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
+    $("#job1").change(function() {
+        if ($(this).data('options') === undefined) {
+            /*Taking an array of all options-2 and kind of embedding it on the select1*/
+            $(this).data('options', $('#role1 option').clone());
         }
-        $(".file-upload").on('change', function () {
-            readURL(this);
-        });
-        $(".upload-button").on('click', function () {
-            $(".file-upload").click();
-        });
+        var id = $(this).val();
+        var options = $(this).data('options').filter('[value=' + id + ']');
+        $('#role1').html(options);
     });
 
 
-    $('.controls').on("input click", "#search", function (e) {
-        var val = $(this).val();
 
-        dataList.empty();
-
-        if (val === "" || val.length < 10) return;
-
-        if (testObj.results.length) {
-            for (var i = 0, len = testObj.results.length; i < len; i++) {
-                var opt = $("<option></option>").attr("value", testObj.results[i]['skill']);
-                tempObj[testObj.results[i]['skill']] = testObj.results[i]['id'];
-
-                dataList.append(opt);
-            }
-        }
-
+    $(document).ready(function() {
+        $("#upload-file-input").on("change", uploadFile);
     });
 
+    /**
+     * Upload the file sending it via Ajax at the Spring Boot server.
+     */
+    function uploadFile() {
+        $.ajax({
+            url: "person/uploadFile",
+            type: "POST",
+            data: new FormData($("#upload-file-form")[0]),
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function () {
+                
+            },
+            error: function () {
+                // Handle upload error
+                // ...
+            }
+        });
+    }
 
 }]);
+
+//Upload image from local
+/*$(document).ready(function () {
+
+ var readURL = function (input) {
+ if (input.files && input.files[0]) {
+ var reader = new FileReader();
+
+ reader.onload = function (e) {
+ $('.profile-pic').attr('src', e.target.result);
+ }
+
+ reader.readAsDataURL(input.files[0]);
+ }
+ }
+ $(".file-upload").on('change', function () {
+ readURL(this);
+ });
+ $(".upload-button").on('click', function () {
+ $(".file-upload").click();
+ });
+
+ });
+*/
+/*function handleFileSelect(evt) {
+ var files = evt.target.files; // FileList object
+
+ // Loop through the FileList and render image files as thumbnails.
+ for (var i = 0, f; f = files[i]; i++) {
+
+ // Only process image files.
+ if (!f.type.match('image.*')) {
+ continue;
+ }
+
+ var reader = new FileReader();
+
+ // Closure to capture the file information.
+ reader.onload = (function(theFile) {
+ return function(e) {
+ // Render thumbnail.
+ var span = document.createElement('span');
+ span.innerHTML = ['<img class="thumb" src="', e.target.result,
+ '" title="', escape(theFile.name), '"/>'].join('');
+
+ document.getElementById('list').insertBefore(span, null);
+ localStorage.setItem('img'+$scope.person._id, e.target.result);
+ };
+ })(f);
+
+ // Read in the image file as a data URL.
+ reader.readAsDataURL(f);
+ }
+ }
+
+ document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+
+ if(localStorage.img+$scope.person._id) {
+
+ var span = document.createElement('span');
+ span.innerHTML += ['<img class="thumb" src="', localStorage.img+$scope.person._id,
+ '" title="test"/>'].join('');
+
+ document.getElementById('files').insertBefore(span, null);
+
+ }*/
+
+
+/*
+ $('.controls').on("input click", "#search", function (e) {
+ var val = $(this).val();
+
+ dataList.empty();
+
+ if (val === "" || val.length < 10) return;
+
+ if (testObj.results.length) {
+ for (var i = 0, len = testObj.results.length; i < len; i++) {
+ var opt = $("<option></option>").attr("value", testObj.results[i]['skill']);
+ tempObj[testObj.results[i]['skill']] = testObj.results[i]['id'];
+
+ dataList.append(opt);
+ }
+ }
+
+ });*/

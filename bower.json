@@ -31,7 +31,8 @@
     "ng-tags-input": "~2.1.1",
     "jquery-spinner": "jquery.spinner#~0.2.0",
     "angular-drag-and-drop-lists": "~2.1.0",
-    "ng-file-model": "*"
+    "ng-file-model": "*",
+    "angular-local-storage": "^0.7.1"
   },
   "devDependencies": {
     "bootstrap-sass-official": "~3.3.0",

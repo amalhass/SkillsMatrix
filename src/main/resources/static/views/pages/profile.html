@@ -4,10 +4,19 @@
         <div class="panel panel-default col-md-offset-2">
             <div class="panel-body">
                 <div class="pull-left">
-                    <img class="media-object profile-pic upload-button" src="../images/avatar_7.png" width="153px"
-                         height="153px" style="border-radius:4px;margin-top: -16px;margin-left:-16px" alt="...">
+                   <!--<input type="file" id="files" name="files[]" multiple />
+                    <output id="list"></output>-->
+                    <form id="upload-file-form" >
+                    <img for="upload-file-input" class="profile-pic upload-button" ng-src="../images/{{imageName}}" width="150px" height="150px"/>
+                    <input id="upload-file-input" type="file" name="uploadfile"  accept="image/*" style="display: none"/>
+                    </form>
+                   <!-- <input type="file" id="file" />
+                    <button onclick="uploadFile()">Upload</button>-->
+                  <!--  <form id="upload-file-form">
+                        <label for="upload-file-input">Upload your file:</label>
+                        <input id="upload-file-input" type="file" name="uploadfile" accept="*" />
+                    </form>-->
 
-                    <input class="file-upload" type="file" accept="image/*" style="display: none"/>
                 </div>
                 <div class="media-body update-card-body" style="margin-top: 12%">
 
@@ -28,91 +37,240 @@
                             <div class="row">
                                 <div class="form-inline">
                                     <label class="col-sm-2"><h5>Job:</h5></label>
-                                    <select class="col-sm-4" style="height: 33px;" ng-model="person.job" required>
+                                    <select name="job1" id="job1" class="col-sm-4" style="height: 33px;" ng-model="person.job" required >
                                         <option disabled selected value></option>
-                                        <option>Application Architect</option>
-                                        <option>Application Consultant</option>
-                                        <option>Application Database Administrator</option>
-                                        <option>Application Developer</option>
-                                        <option>Architect</option>
-                                        <option>Assistant/Secretary</option>
-                                        <option>Business Advisor</option>
-                                        <option>Business Analyst</option>
-                                        <option>Business Area Manager</option>
-                                        <option>Business Information Management Specialist</option>
-                                        <option>Business Operations Professional</option>
-                                        <option>Business Programs Manager</option>
-                                        <option>Business Sales & Delivery Executive</option>
-                                        <option>Business Transformation Consultant</option>
-                                        <option>Capacity Management Professional</option>
-                                        <option>Compliance Audit & Risk Assurer</option>
-                                        <option>Compliance Tester</option>
-                                        <option>Contract Commercial Manager</option>
-                                        <option>Contract Management Advisor</option>
-                                        <option>Contract Management Specialist</option>
-                                        <option>Data Management Support Specialist</option>
-                                        <option>Data Scientist</option>
-                                        <option>Data Specialist</option>
-                                        <option>Delivery Project Executive</option>
-                                        <option>Designer</option>
-                                        <option>Executive</option>
-                                        <option>Financial Analyst</option>
-                                        <option>Functional Manager</option>
-                                        <option>Industry Consultant</option>
-                                        <option>Information Architect</option>
-                                        <option>Infrastructure Architect</option>
-                                        <option>Infrastructure Specialist</option>
-                                        <option>Learning Consultant</option>
-                                        <option>Measurements & Reporting Analyst</option>
-                                        <option>Package Solution Consultant</option>
-                                        <option>Packaged Application Enablement Specialist</option>
-                                        <option>People Manager</option>
-                                        <option>Performance & Optimization Professional</option>
-                                        <option>Project Administrator</option>
-                                        <option>Project Executive</option>
-                                        <option>Project Manager</option>
-                                        <option>Project Staffing Professional</option>
-                                        <option>Quality Assurance Professional</option>
-                                        <option>Recruitment Professional</option>
-                                        <option>Resource Staffing Professional</option>
-                                        <option>Security Consultant</option>
-                                        <option>Solution Manager</option>
-                                        <option>Solution Representative</option>
-                                        <option>Strategy Consultant</option>
-                                        <option>Support Center Representative</option>
-                                        <option>Systems Engineering Professional</option>
-                                        <option>Technical Consultant</option>
-                                        <option>Technical Solution Architect</option>
-                                        <option>Technical Solution Manager</option>
-                                        <option>Technical Team Leader</option>
-                                        <option>Test Architect</option>
+                                        <option value="1">Application Architect</option>
+                                        <option value="2">Application Consultant</option>
+                                        <option value="3">Application Database Administrator</option>
+                                        <option value="4">Application Developer</option>
+                                        <option value="5">Architect</option>
+                                        <option value="6">Assistant/Secretary</option>
+                                        <option value="7">Business Advisor</option>
+                                        <option value="8">Business Analyst</option>
+                                        <option value="9">Business Area Manager</option>
+                                        <option value="10">Business Information Management Specialist</option>
+                                        <option value="11">Business Operations Professional</option>
+                                        <option value="12">Business Programs Manager</option>
+                                        <option value="13">Business Sales & Delivery Executive</option>
+                                        <option value="14">Business Transformation Consultant</option>
+                                        <option value="15">Capacity Management Professional</option>
+                                        <option value="16">Compliance Audit & Risk Assurer</option>
+                                        <option value="17">Compliance Tester</option>
+                                        <option value="18">Contract Commercial Manager</option>
+                                        <option value="19">Contract Management Advisor</option>
+                                        <option value="20">Contract Management Specialist</option>
+                                        <option value="21">Data Management Support Specialist</option>
+                                        <option value="22">Data Scientist</option>
+                                        <option value="23">Data Specialist</option>
+                                        <option value="24">Delivery Project Executive</option>
+                                        <option value="25">Designer</option>
+                                        <option value="26">Executive</option>
+                                        <option value="27">Financial Analyst</option>
+                                        <option value="28">Functional Manager</option>
+                                        <option value="29">Industry Consultant</option>
+                                        <option value="30">Information Architect</option>
+                                        <option value="31">Infrastructure Architect</option>
+                                        <option value="32">Infrastructure Specialist</option>
+                                        <option value="33">Learning Consultant</option>
+                                        <option value="34">Measurements & Reporting Analyst</option>
+                                        <option value="35">Package Solution Consultant</option>
+                                        <option value="36">Packaged Application Enablement Specialist</option>
+                                        <option value="37">People Manager</option>
+                                        <option value="38">Performance & Optimization Professional</option>
+                                        <option value="39">Project Administrator</option>
+                                        <option value="40">Project Executive</option>
+                                        <option value="41">Project Manager</option>
+                                        <option value="42">Project Staffing Professional</option>
+                                        <option value="43">Quality Assurance Professional</option>
+                                        <option value="44">Recruitment Professional</option>
+                                        <option value="45">Resource Staffing Professional</option>
+                                        <option value="46">Security Consultant</option>
+                                        <option value="47">Solution Manager</option>
+                                        <option value="48">Solution Representative</option>
+                                        <option value="49">Strategy Consultant</option>
+                                        <option value="50">Support Center Representative</option>
+                                        <option value="51">Systems Engineering Professional</option>
+                                        <option value="52">Technical Consultant</option>
+                                        <option value="53">Technical Solution Architect</option>
+                                        <option value="54">Technical Solution Manager</option>
+                                        <option value="55">Technical Team Leader</option>
+                                        <option value="56">Test Architect</option>
                                     </select>
                                     <label class="col-sm-2"><h5>Role: </h5></label>
-                                    <select class="col-sm-4" style="height: 33px;" ng-model="person.role" required>
+                                    <select name="role1" id="role1" class="col-sm-4" style="height: 33px;" ng-model="person.role" required >
                                         <option disabled selected value></option>
-                                        <option>Microsoft</option>
-                                        <option>Mobile</option>
-                                        <option>Oracle Applications Application Innovation</option>
-                                        <option>Oracle Applications Consulting</option>
-                                        <option>Oracle Cloud.ERP Consulting</option>
-                                        <option>Oracle Cloud.HCM Consulting</option>
-                                        <option>PeopleSoft Application Innovation</option>
-                                        <option>PeopleSoft Consulting</option>
-                                        <option>Project Office Management</option>
-                                        <option>Public Sector</option>
-                                        <option>Quality Assurance</option>
-                                        <option>Salesforce</option>
-                                        <option>SAP Application Innovation</option>
-                                        <option>SAP Consulting</option>
-                                        <option>Security</option>
-                                        <option>Server Consolidation</option>
-                                        <option>Siebel Application Innovation</option>
-                                        <option>Siebel Consulting</option>
-                                        <option>Smarter Applications</option>
-                                        <option>Smarter Commerce</option>
-                                        <option>System Integration</option>
-                                        <option>Transition & Transformation</option>
-                                        <option>Workday</option>
+                                        <option value="1">Adobe.Marketing Cloud</option>
+                                        <option value="1">AIX/UNIX</option>
+                                        <option value="1">Application Virtualization</option>
+                                        <option value="1">Big Data</option>
+                                        <option value="1">Business Intelligence</option>
+                                        <option value="1">Cloud.Custom Development</option>
+                                        <option value="1">Cognitive Computing</option>
+                                        <option value="1">Consumer Engagement Cloud Solutions</option>
+                                        <option value="1">Contact Center</option>
+                                        <option value="1">Custom Development</option>
+                                        <option value="1">Custom Development.Legacy</option>
+                                        <option value="1">Digital Modernization</option>
+                                        <option value="1">eCommerce</option>
+                                        <option value="1">Embedded Systems</option>
+                                        <option value="1">Enterprise Content Management</option>
+                                        <option value="1">Enterprise Marketing Management</option>
+                                        <option value="1">Experience Engineering</option>
+                                        <option value="1">Financial Services</option>
+                                        <option value="1">IBM Maximo</option>
+                                        <option value="1">Internet of Things</option>
+                                        <option value="1">Internet of Things Cloud Solutions</option>
+                                        <option value="1">Java</option>
+                                        <option value="1">JDE</option>
+                                        <option value="1">Linux</option>
+                                        <option value="1">LOTUS.Solutions</option>
+                                        <option value="1">Manufacturing Execution Systems (MES)</option>
+                                        <option value="1">Microsoft</option>
+                                        <option value="1">Microsoft Navision</option>
+                                        <option value="1">Middleware</option>
+                                        <option value="1">Mobile</option>
+                                        <option value="1">Oracle Applications</option>
+                                        <option value="1">OS/400</option>
+                                        <option value="1">PeopleSoft</option>
+                                        <option value="1">Performance and Capacity Management</option>
+                                        <option value="1">Personalized Learning Cloud Solutions</option>
+                                        <option value="1">Portals</option>
+                                        <option value="1">Salesforce</option>
+                                        <option value="1">SAP</option>
+                                        <option value="1">SAP.BA.Basis</option>
+                                        <option value="1">SAP.Basis</option>
+                                        <option value="1">SAP.Basis.Solution Manager</option>
+                                        <option value="1">SAP.Cloud</option>
+                                        <option value="1">SAP.EIM</option>
+                                        <option value="1">SAP.HANA.Basis</option>
+                                        <option value="1">SAP.Hybris</option>
+                                        <option value="1">SAP.Hybris.Billing</option>
+                                        <option value="1">SAP.Mobility</option>
+                                        <option value="1">SAP.Portals</option>
+                                        <option value="1">SAP.Security</option>
+                                        <option value="1">Security</option>
+                                        <option value="1">Siebel</option>
+                                        <option value="1">Smarter Process</option>
+                                        <option value="1">Tririga</option>
+                                        <option value="1">Web Content Management</option>
+                                        <option value="1">Web Services/SOA</option>
+                                        <option value="1">Web Technologies</option>
+
+                                        <option value="2">Agile</option>
+                                        <option value="2">Agile & DevOps.Hybrid Cloud Solutions</option>
+                                        <option value="2">Agile.Digital & Mobile Platforms</option>
+                                        <option value="2">Application Development Effectiveness</option>
+                                        <option value="2">Consumer Engagement Cloud Solutions</option>
+                                        <option value="2">Contact Center</option>
+                                        <option value="2">Content Strategy</option>
+                                        <option value="2">Copywriting</option>
+                                        <option value="2">DevOps</option>
+                                        <option value="2">Digital Modernization</option>
+                                        <option value="2">Enterprise Content Management</option>
+                                        <option value="2">Experience Architecture</option>
+                                        <option value="2">Experience Architecture.iOS</option>
+                                        <option value="2">Experience Architecture.Mobile</option>
+                                        <option value="2">Experience Design</option>
+                                        <option value="2">Experience Research & Insights</option>
+                                        <option value="2">Hybrid Cloud Operations</option>
+                                        <option value="2">Interactive</option>
+                                        <option value="2">Internet of Things Cloud Solutions</option>
+                                        <option value="2">Mapit Project Management</option>
+                                        <option value="2">Middleware</option>
+                                        <option value="2">Mobile</option>
+                                        <option value="2">Personalized Learning Cloud Solutions</option>
+                                        <option value="2">Transition & Transformation Metrics SLA</option>
+                                        <option value="2">Transition & Transformation Process Change</option>
+                                        <option value="2">Web Content Management</option>
+                                        <option value="2">Web Services/SOA</option>
+                                        <option value="2">Web Technologies</option>
+
+                                        <option value="3">DB2</option>
+                                        <option value="3">Oracle Applications</option>
+                                        <option value="3">Oracle Database</option>
+                                        <option value="3">PeopleSoft</option>
+                                        <option value="3">SQL</option>
+                                        <option value="3">Sybase</option>
+                                        <option value="3">Teradata</option>
+
+                                        <option value="4">Adabas</option>
+                                        <option value="4">Adobe.Marketing Cloud</option>
+                                        <option value="4">Advanced Case Management</option>
+                                        <option value="4">Advantage:Gen</option>
+                                        <option value="4">AIX/UNIX</option>
+                                        <option value="4">Application Virtualization</option>
+                                        <option value="4">AS/400 IBM System</option>
+                                        <option value="4">Assembler</option>
+                                        <option value="4">BI Reporting Tools</option>
+                                        <option value="4">Big Data Streams</option>
+                                        <option value="4">Big Data Tools</option>
+                                        <option value="4">BizTalk Server</option>
+                                        <option value="4">Build/Configuration Management</option>
+                                        <option value="4">C</option>
+                                        <option value="4">C#.NET</option>
+                                        <option value="4">C++</option>
+                                        <option value="4">CICS</option>
+                                        <option value="4">Cloud Migration</option>
+                                        <option value="4">Cloud.Java</option>
+                                        <option value="4">COBOL</option>
+                                        <option value="4">COGNOS.BI</option>
+                                        <option value="4">Contact Center</option>
+                                        <option value="4">Curam</option>
+                                        <option value="4">DB2</option>
+                                        <option value="4">Microsoft</option>
+                                        <option value="4">Microsoft Navision</option>
+                                        <option value="4">Middleware</option>
+                                        <option value="4">Mobile</option>
+                                        <option value="4">Oracle Applications</option>
+                                        <option value="4">OS/400</option>
+                                        <option value="4">PeopleSoft</option>
+                                        <option value="4">Performance and Capacity Management</option>
+                                        <option value="4">Personalized Learning Cloud Solutions</option>
+                                        <option value="4">Portals</option>
+                                        <option value="4">Salesforce</option>
+                                        <option value="4">SAP</option>
+                                        <option value="4">SAP.BA.Basis</option>
+                                        <option value="4">SAP.Basis</option>
+                                        <option value="4">SAP.Basis.Solution Manager</option>
+                                        <option value="4">SAP.Cloud</option>
+                                        <option value="4">SAP.EIM</option>
+                                        <option value="4">SAP.HANA.Basis</option>
+                                        <option value="4">SAP.Hybris</option>
+                                        <option value="4">SAP.Hybris.Billing</option>
+                                        <option value="4">SAP.Mobility</option>
+                                        <option value="4">SAP.Portals</option>
+                                        <option value="4">SAP.Security</option>
+                                        <option value="4">Security</option>
+                                        <option value="4">Siebel</option>
+                                        <option value="4">Smarter Process</option>
+                                        <option value="4">Tririga</option>
+                                        <option value="4">Web Content Management</option>
+                                        <option value="4">Web Services/SOA</option>
+                                        <option value="4">Web Technologies</option>
+
+                                        <option value="41">Microsoft</option>
+                                        <option value="41">Mobile</option>
+                                        <option value="41">Oracle Applications Application Innovation</option>
+                                        <option value="41">Oracle Applications Consulting</option>
+                                        <option value="41">Oracle Cloud.ERP Consulting</option>
+                                        <option value="41" >Oracle Cloud.HCM Consulting</option>
+                                        <option value="41">PeopleSoft Application Innovation</option>
+                                        <option value="41" >PeopleSoft Consulting</option>
+                                        <option value="41">Project Office Management</option>
+                                        <option value="41">Public Sector</option>
+                                        <option value="41">Quality Assurance</option>
+                                        <option value="41">Salesforce</option>
+                                        <option value="41">SAP Application Innovation</option>
+                                        <option value="41">SAP Consulting</option>
+                                        <option value="41">Security</option>
+                                        <option value="41">Server Consolidation</option>
+                                        <option value="41">Siebel Application Innovation</option>
+                                        <option value="41">Siebel Consulting</option>
+                                        <option value="41">Smarter Applications</option>
+                                        <option value="41">Smarter Commerce</option>
+                                        <option value="41">System Integration</option>
+                                        <option value="41">Transition & Transformation</option>
+                                        <option value="41">Workday</option>
                                     </select>
                                 </div>
                             </div>
@@ -414,79 +572,80 @@
                 <div class="row col-xs-offset-0">
                     <form class="form-inline">
                         <label class="col-sm-2"><h5>Project Name:</h5></label>
-                        <input class="col-sm-4" id="search" name="search" list="project" type="text"
-                               ng-model="person.projectName" required>
+                        <select class="col-sm-4" style="height: 33px;"  ng-model="person.projectName" required>
+                            <option>ADM SIT BNPP - BMRC</option>
+                            <option>ADM SIT BNPP - SYRACUSE</option>
+                            <option>ADM SIT BNPP - CRT</option>
+                            <option>ADM SIT BNPP - CAPRI WEB</option>
+                            <option>ADM SIT BNPP - MAGITTE</option>
+                            <option>ADM SIT BNPP - Global Vision</option>
+                            <option>ADM SIT BNPP - Forecast</option>
+                            <option>ADM SIT BNPP - Miro</option>
+                            <option>ADM SIT BNPP - Dali</option>
+                            <option>ADM SIT BNPP - DIRECTIVES GROUP</option>
+                            <option>ADM SIT BNPP - QUERAS</option>
+                            <option>ADM SIT BNPP - CONTRAST</option>
+                            <option>ADM SIT BNPP - Aurora</option>
+                            <option>ADM SIT BNPP - 2OPC</option>
+                            <option>ADM SIT BNPP - Back Testing</option>
+                            <option>ADM SIT BNPP - Stress Testing</option>
+                            <option>ADM SIT BNPP - ASAP</option>
+                            <option>ADM SIT BNPP - RTS</option>
+                            <option>ADM SIT BNPP - COCPIT</option>
+                            <option>ADM SIT BNPP - MOZART</option>
+                            <option>ADM SIT BNPP - METEO</option>
+                            <option>ADM SIT BNPP - REFWEB</option>
+                            <option>ADM SIT BNPP - SPEND ANALYSIS</option>
+                            <option>ADM SIT BNPP - IRESA</option>
+                            <option>ADM SIT BNPP - ITRAVEL</option>
+                            <option>ADM SIT BNPP - OSACA</option>
+                            <option>ADM SIT BNPP - ARIBA</option>
+                            <option>ADM SIT BNPP - LINK</option>
+                            <option>ADM SIT BNPP - Fleximmo</option>
+                            <option>ADM SIT BNPP - Connecteur PtoP</option>
+                            <option>ADM SIT BNPP - SYFACT</option>
+                            <option>ADM SIT BNPP - ABC</option>
+                            <option>ADM SIT BNPP - OCOP/COPIF</option>
+                            <option>ADM SIT BNPP - SUN</option>
+                            <option>ADM SIT BNPP - REGLISS</option>
+                            <option>ADM SIT BNPP - SINFOC</option>
+                            <option>ADM SIT BNPP - SUN Continuity</option>
+                            <option>ADM SIT BNPP - EP</option>
+                            <option>ADM SIT BNPP - ROKRI</option>
+                            <option>ADM SIT BNPP - Vigilance</option>
+                            <option>ADM SIT BNPP - COSI</option>
+                            <option>ADM SIT BNPP - Infocentre GFC</option>
+                            <option>ADM SIT BNPP - CORE</option>
+                            <option>ADM SIT BNPP - Archivage Shine</option>
+                            <option>ADM SIT BNPP - SWIFT Observer</option>
+                            <option>ADM SIT BNPP - MBAW</option>
+                            <option>ADM SIT BNPP - VINCI AE</option>
+                            <option>ADM SIT BNPP - ARCBI</option>
+                            <option>ADM SIT BNPP - SDST</option>
+                            <option>ADM SIT BNPP - ACTUAR</option>
+                            <option>ADM SIT BNPP - PEPS</option>
+                            <option>ADM SIT BNPP - CONSO</option>
+                            <option>ADM SIT BNPP - BMT</option>
+                            <option>ADM SIT BNPP - DRACONIS</option>
+                            <option>ADM SIT BNPP - KAPLAN</option>
+                            <option>ADM SIT BNPP - PARADIGME</option>
+                            <option>ADM SIT BNPP - PTLREV (CHORUS)</option>
+                            <option>ADM SIT BNPP - ARC</option>
+                            <option>ADM SIT BNPP - BALI</option>
+                            <option>ADM SIT BNPP - FACT</option>
+                            <option>ADM SIT BNPP - CASTING</option>
+                            <option>ADM SIT BNPP - NSA</option>
+                            <option>ADM SIT BNPP - KLIMT</option>
+                            <option>ADM SIT BNPP - Portail UXRH</option>
+                            <option>ADM SIT BNPP - Tranverse</option>
+                            <option>Skills Matrix</option>
+                        </select>
                         <label class="col-sm-2"><h5>Start of Project:</h5></label>
                         <input class="col-sm-4" type="date" ng-model="person.startOfProject" placeholder='MM-DD-YYYY'
                                required>
                     </form>
 
                     <datalist id="project">
-                        <option>ADM SIT BNPP - BMRC</option>
-                        <option>ADM SIT BNPP - SYRACUSE</option>
-                        <option>ADM SIT BNPP - CRT</option>
-                        <option>ADM SIT BNPP - CAPRI WEB</option>
-                        <option>ADM SIT BNPP - MAGITTE</option>
-                        <option>ADM SIT BNPP - Global Vision</option>
-                        <option>ADM SIT BNPP - Forecast</option>
-                        <option>ADM SIT BNPP - Miro</option>
-                        <option>ADM SIT BNPP - Dali</option>
-                        <option>ADM SIT BNPP - DIRECTIVES GROUP</option>
-                        <option>ADM SIT BNPP - QUERAS</option>
-                        <option>ADM SIT BNPP - CONTRAST</option>
-                        <option>ADM SIT BNPP - Aurora</option>
-                        <option>ADM SIT BNPP - 2OPC</option>
-                        <option>ADM SIT BNPP - Back Testing</option>
-                        <option>ADM SIT BNPP - Stress Testing</option>
-                        <option>ADM SIT BNPP - ASAP</option>
-                        <option>ADM SIT BNPP - RTS</option>
-                        <option>ADM SIT BNPP - COCPIT</option>
-                        <option>ADM SIT BNPP - MOZART</option>
-                        <option>ADM SIT BNPP - METEO</option>
-                        <option>ADM SIT BNPP - REFWEB</option>
-                        <option>ADM SIT BNPP - SPEND ANALYSIS</option>
-                        <option>ADM SIT BNPP - IRESA</option>
-                        <option>ADM SIT BNPP - ITRAVEL</option>
-                        <option>ADM SIT BNPP - OSACA</option>
-                        <option>ADM SIT BNPP - ARIBA</option>
-                        <option>ADM SIT BNPP - LINK</option>
-                        <option>ADM SIT BNPP - Fleximmo</option>
-                        <option>ADM SIT BNPP - Connecteur PtoP</option>
-                        <option>ADM SIT BNPP - SYFACT</option>
-                        <option>ADM SIT BNPP - ABC</option>
-                        <option>ADM SIT BNPP - OCOP/COPIF</option>
-                        <option>ADM SIT BNPP - SUN</option>
-                        <option>ADM SIT BNPP - REGLISS</option>
-                        <option>ADM SIT BNPP - SINFOC</option>
-                        <option>ADM SIT BNPP - SUN Continuity</option>
-                        <option>ADM SIT BNPP - EP</option>
-                        <option>ADM SIT BNPP - ROKRI</option>
-                        <option>ADM SIT BNPP - Vigilance</option>
-                        <option>ADM SIT BNPP - COSI</option>
-                        <option>ADM SIT BNPP - Infocentre GFC</option>
-                        <option>ADM SIT BNPP - CORE</option>
-                        <option>ADM SIT BNPP - Archivage Shine</option>
-                        <option>ADM SIT BNPP - SWIFT Observer</option>
-                        <option>ADM SIT BNPP - MBAW</option>
-                        <option>ADM SIT BNPP - VINCI AE</option>
-                        <option>ADM SIT BNPP - ARCBI</option>
-                        <option>ADM SIT BNPP - SDST</option>
-                        <option>ADM SIT BNPP - ACTUAR</option>
-                        <option>ADM SIT BNPP - PEPS</option>
-                        <option>ADM SIT BNPP - CONSO</option>
-                        <option>ADM SIT BNPP - BMT</option>
-                        <option>ADM SIT BNPP - DRACONIS</option>
-                        <option>ADM SIT BNPP - KAPLAN</option>
-                        <option>ADM SIT BNPP - PARADIGME</option>
-                        <option>ADM SIT BNPP - PTLREV (CHORUS)</option>
-                        <option>ADM SIT BNPP - ARC</option>
-                        <option>ADM SIT BNPP - BALI</option>
-                        <option>ADM SIT BNPP - FACT</option>
-                        <option>ADM SIT BNPP - CASTING</option>
-                        <option>ADM SIT BNPP - NSA</option>
-                        <option>ADM SIT BNPP - KLIMT</option>
-                        <option>ADM SIT BNPP - Portail UXRH</option>
-                        <option>ADM SIT BNPP - Tranverse</option>
 
                     </datalist>
                 </div>
@@ -520,7 +679,7 @@
                 <br>
                 <div class="row">
 
-                    <div>
+                    <div style="overflow: auto; height:200px;">
                         <table class="table table-hover table-responsive">
                             <thead>
                             <tr>
@@ -536,7 +695,7 @@
                                 </th>
                             </tr>
                             </thead>
-                            <tbody style="overflow: auto">
+                            <tbody >
                             <tr ng-repeat="item in person.skills">
                                 <td ng-model="item.name">{{item.name}}</td>
                                 <td ng-model="item.level">{{item.level}}</td>
@@ -560,7 +719,7 @@
                 <form class="form-inline" method="POST" enctype="multipart/form-data"
                       action="http://localhost:8080/person/upload" target="hiddenFrame">
                     <div>
-                        <input class="col-xs-8" type="file" name="uploadedFile" style="padding-top: 29px;">
+                        <input class="col-xs-8" type="file" name="uploadedFile" style="padding-top: 29px;" ng-model="person.attachment">
 
                         <button style="margin-top: 30px;font-size: 14px" type="submit">Upload</button>
                     </div>
@@ -816,3 +975,4 @@
         <button type="button" class="btn btn-success pull-right" ng-click="validerSkills()">Valider</button>
     </div>
 </script>
+

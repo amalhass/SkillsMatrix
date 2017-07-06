@@ -2,7 +2,7 @@
     'use strict';
     var app = angular.module(
         'app',
-        [ 'jkAngularRatingStars','ng-file-model','ngStorage','dndLists','ngRoute', 'ngAnimate', 'ui.bootstrap', 'easypiechart',
+        [ 'jkAngularRatingStars','ng-file-model','LocalStorageModule','ngStorage','dndLists','ngRoute', 'ngAnimate', 'ui.bootstrap', 'easypiechart',
             'mgo-angular-wizard', 'textAngular', 'ui.tree',
             'ngTagsInput', 'app.authentication', 'app.ui.ctrls',
             'app.ui.directives', 'app.ui.services', 'app.controllers',

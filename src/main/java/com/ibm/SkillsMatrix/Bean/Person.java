@@ -25,6 +25,7 @@ public class Person {
 	private Date EndOfProject;
 	private String UseRate;
 	private ArrayList<Skills> Skills;
+	private String Attachment;
 
 	public Person() {
 
@@ -179,4 +180,11 @@ public class Person {
 		Skills = skills;
 	}
 
+	public String getAttachment() {
+		return Attachment;
+	}
+
+	public void setAttachment(String attachment) {
+		Attachment = attachment;
+	}
 }
