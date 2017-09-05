@@ -1,0 +1,95 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "angular-cropper",
+        "scope": null,
+        "escapedName": "angular-cropper",
+        "name": "angular-cropper",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Users\\IBM_ADMIN\\Documents\\workspace-sts-3.8.4.RELEASE\\IbmSkillsMatrix"
+    ]
+  ],
+  "_from": "angular-cropper@latest",
+  "_id": "angular-cropper@0.9.0",
+  "_inCache": true,
+  "_location": "/angular-cropper",
+  "_nodeVersion": "7.7.4",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/angular-cropper-0.9.0.tgz_1490641126586_0.7989326040260494"
+  },
+  "_npmUser": {
+    "name": "twhitbeck",
+    "email": "twhitbeck@gmail.com"
+  },
+  "_npmVersion": "4.1.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "angular-cropper",
+    "scope": null,
+    "escapedName": "angular-cropper",
+    "name": "angular-cropper",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-cropper/-/angular-cropper-0.9.0.tgz",
+  "_shasum": "3daa91e9acf3beac5cc00e9e8c033f6b2a2f2423",
+  "_shrinkwrap": null,
+  "_spec": "angular-cropper",
+  "_where": "C:\\Users\\IBM_ADMIN\\Documents\\workspace-sts-3.8.4.RELEASE\\IbmSkillsMatrix",
+  "author": {
+    "name": "twhitbeck"
+  },
+  "bugs": {
+    "url": "https://github.com/twhitbeck/angular-cropper/issues"
+  },
+  "dependencies": {
+    "angular-file-reader": "^1.0.0"
+  },
+  "description": "A simple image cropper angular.js (1.x) directive",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "3daa91e9acf3beac5cc00e9e8c033f6b2a2f2423",
+    "tarball": "https://registry.npmjs.org/angular-cropper/-/angular-cropper-0.9.0.tgz"
+  },
+  "gitHead": "0b36692009b030a6267e7702cf81517df5abac29",
+  "homepage": "https://github.com/twhitbeck/angular-cropper#readme",
+  "keywords": [
+    "angular",
+    "angular.js",
+    "angularjs",
+    "crop",
+    "image",
+    "mobile",
+    "cropper"
+  ],
+  "license": "ISC",
+  "main": "angular-cropper.js",
+  "maintainers": [
+    {
+      "name": "twhitbeck",
+      "email": "twhitbeck@gmail.com"
+    }
+  ],
+  "name": "angular-cropper",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "angular": "^1.4.8"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twhitbeck/angular-cropper.git"
+  },
+  "scripts": {},
+  "version": "0.9.0"
+}

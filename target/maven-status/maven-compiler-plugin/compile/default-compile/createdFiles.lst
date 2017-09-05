@@ -1,0 +1,9 @@
+com\ibm\SkillsMatrix\Business\AuthentificationService.class
+com\ibm\SkillsMatrix\Business\PersonService.class
+com\ibm\SkillsMatrix\Application.class
+com\ibm\SkillsMatrix\Bean\Skills.class
+com\ibm\SkillsMatrix\Bean\Person.class
+com\ibm\SkillsMatrix\Controller\PersonController.class
+com\ibm\SkillsMatrix\Controller\AuthentificationController.class
+com\ibm\SkillsMatrix\dao\AuthentificationRepo.class
+com\ibm\SkillsMatrix\Bean\FileBucket.class

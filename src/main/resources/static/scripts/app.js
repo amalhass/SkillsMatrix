@@ -17,8 +17,10 @@
 
             }).when('/dashboard', {
                 templateUrl : 'views/dashboard.html'
-            }).when('localhost:8080/person/upload', {
+            }).when('/pages/profile', {
                 templateUrl : 'views/pages/profile.html'
+            }).when('/pages/search', {
+                templateUrl : 'views/searchAvailability/Search.html'
             }).when('/ui/typography', {
                 templateUrl : 'views/ui/typography.html'
             }).when('/ui/buttons', {
@@ -153,4 +155,5 @@
 
         });
     });
+
 }).call();

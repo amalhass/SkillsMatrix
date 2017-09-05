@@ -2,12 +2,14 @@ package com.ibm.SkillsMatrix.Business;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cloudant.client.api.Database;
 import com.cloudant.client.api.model.Response;
 import com.ibm.SkillsMatrix.Bean.Person;
+import com.ibm.SkillsMatrix.Bean.Skills;
 
 @Service
 public class PersonService {
@@ -61,8 +63,15 @@ public class PersonService {
 	}
 
 	
+	public void deleteSkills(String Id,int index){
+		Person user=skillsmatrixdb.find(Person.class, Id);
+		ArrayList<Skills> skills= user.getSkills();
+		skills.remove(index);
+	}
 	
 	
 	
+	
+
 
 }

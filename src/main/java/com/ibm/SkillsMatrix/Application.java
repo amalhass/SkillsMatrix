@@ -2,6 +2,7 @@ package com.ibm.SkillsMatrix;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 
 import com.cloudant.client.api.CloudantClient;
@@ -18,4 +19,9 @@ public class Application {
 	 public Database skillsmatrixdb(CloudantClient cloudant) {
 	 	return cloudant.database("skillsmatrixdb", true);
 	 }
+	 
+	 protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	        return application.sources(Application.class);
+	    }
 }
+
