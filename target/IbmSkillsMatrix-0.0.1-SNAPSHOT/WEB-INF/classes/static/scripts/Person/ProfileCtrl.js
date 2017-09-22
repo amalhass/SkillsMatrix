@@ -21,8 +21,7 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
         "startOfProject": "",
         "endOfProject": "",
         "useRate": "",
-        "skills": [{"name": "", "level": ""}],
-        "attachment":""
+        "skills": [{"name": "", "level": ""}]
     };
     var img;
     $scope.updatePerson = function (person) {
@@ -96,7 +95,7 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
                     $scope.models.lists.A.splice(index, 1);
                 };
                 $scope.validerSkills = function () {
-
+                    var skills=$scope.person.skills.name;
                     var list = [];
                     angular.forEach($scope.models.lists.A, function (data) {
                         list.push(data.skill);
@@ -104,7 +103,7 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
 
                     if (list.length > 0) {
                         for (var i = 0; i < list.length; i++) {
-                            $rootScope.person.skills.name = list[i];
+                            skills = list[i];
 
                             switch ($scope.stars) {
                                 case 1 :
@@ -117,7 +116,7 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
                                     $rootScope.person.skills.level = "Senior";
                                     break;
                             }
-                            var obj = {"name": $rootScope.person.skills.name, "level": $rootScope.person.skills.level}
+                            var obj = {"name": skills, "level": $rootScope.person.skills.level}
                             $rootScope.person.skills.push(obj);
                         }
                     }
@@ -168,7 +167,7 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
      */
     function uploadFile() {
         $.ajax({
-            url: "person/uploadFile",
+            url: "https://ibmsmatrix.mybluemix.net/person/uploadFile",
             type: "POST",
             data: new FormData($("#upload-file-form")[0]),
             enctype: 'multipart/form-data',
@@ -176,7 +175,7 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
             contentType: false,
             cache: false,
             success: function () {
-                
+                console.log("i'm here");
             },
             error: function () {
                 // Handle upload error

@@ -1,7 +1,7 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
-@import url(http://fonts.googleapis.com/css?family=Lobster:400,700,900);
-@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+@import url(https://fonts.googleapis.com/css?family=Lobster:400,700,900);
+@import url(https://fonts.googleapis.com/css?family=Ruda:400,700,900);
 
 html {
   font-family: sans-serif;
@@ -893,7 +893,7 @@ html {
 }
 body {
   font-family: 'Ruda', "Helvetica Neue", Arial, sans-serif;
-  font-size: 14px;
+  font-size: 10px;
   line-height: 1.42857143;
   color:#4d4d4f;
   background-color: #F2F2F2;
@@ -11637,7 +11637,7 @@ tr.formation:hover {
 .page {
   position: relative;
   top: 0;
-  overflow: auto;
+  /*overflow: auto;*/
   min-height: 100%;
   width: 75%;
   height: auto;

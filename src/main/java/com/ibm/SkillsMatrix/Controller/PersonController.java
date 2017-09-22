@@ -1,5 +1,6 @@
 package com.ibm.SkillsMatrix.Controller;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +14,8 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -65,7 +68,7 @@ public class PersonController {
 		return personService.updateUser(person);
 	}
 
-	@RequestMapping(value = "/upload")
+/*	@RequestMapping(value = "/upload")
 	public void uploadFile(@RequestParam("uploadedFile") MultipartFile uploadedFileRef) {
 		Person user = new Person();
 		String fileName = uploadedFileRef.getOriginalFilename();
@@ -159,7 +162,32 @@ public class PersonController {
 	        }
 
 	    
-	    }
+	    }*/
+	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<?> uploadFile(
+	    @RequestParam("uploadfile") MultipartFile uploadfile) {
+	  
+	  try {
+	    // Get the filename and build the local file path (be sure that the 
+	    // application have write permissions on such directory)
+	    String filename = uploadfile.getOriginalFilename();
+	    String directory = "C:/Users/IBM_ADMIN/Documents/workspace-sts-3.8.4.RELEASE/IbmSkillsMatrix/uploads";
+	    String filepath = Paths.get(directory, filename).toString();
+	    
+	    // Save the file locally
+	    BufferedOutputStream stream =
+	        new BufferedOutputStream(new FileOutputStream(new File(filepath)));
+	    stream.write(uploadfile.getBytes());
+	    stream.close();
+	  }
+	  catch (Exception e) {
+	    System.out.println(e.getMessage());
+	    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	  }
+	  
+	  return new ResponseEntity<>(HttpStatus.OK);
+	}
 
 	@RequestMapping(value = "/getBy", method = RequestMethod.GET)
 	public List<Person> SearchByCountry(@RequestParam String country, @RequestParam String site,

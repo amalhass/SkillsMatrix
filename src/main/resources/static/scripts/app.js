@@ -103,7 +103,7 @@
             });/*
 			 * .otherwise({ redirectTo: '/404' });
 			 */
-            $urlRouterProvider.otherwise(function($injector, $location) {
+           $urlRouterProvider.otherwise(function($injector, $location) {
                 var AuthService = $injector.get('AuthService');
 
                 AuthService.getUser().success(function(data) {
@@ -136,7 +136,7 @@
                     $location.path("/pages/signin");
                 });
             }
-            AuthService.getUser().success(function (data) {
+           AuthService.getUser().success(function (data) {
                 if(data){
                     if($rootScope.firstConnection){
                         $rootScope.connectedUser=data;

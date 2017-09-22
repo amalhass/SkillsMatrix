@@ -1,0 +1,8 @@
+applications:
+- path: target/IbmSkillsMatrix-0.0.1-SNAPSHOT.war
+  memory: 512M
+  instances: 1
+  domain: mybluemix.net
+  name: IbmSMatrix
+  host: IbmSMatrix
+  disk_quota: 1024M

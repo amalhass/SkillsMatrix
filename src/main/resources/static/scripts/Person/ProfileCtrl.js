@@ -167,7 +167,7 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
      */
     function uploadFile() {
         $.ajax({
-            url: "person/uploadFile",
+            url: "https://ibmsmatrix.mybluemix.net/person/uploadFile",
             type: "POST",
             data: new FormData($("#upload-file-form")[0]),
             enctype: 'multipart/form-data',
@@ -175,7 +175,7 @@ angular.module('app').controller('ProfileCtrl', ['$scope', '$route', '$rootScope
             contentType: false,
             cache: false,
             success: function () {
-                
+                console.log("i'm here");
             },
             error: function () {
                 // Handle upload error

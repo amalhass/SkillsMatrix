@@ -1,0 +1,14 @@
+# Spring properties
+spring:
+  application:
+     name: IbmSkillsMatrix
+ 
+# Server configuration
+server:
+  port: 8080
+ 
+# Cloudant Confiugration
+cloudant:
+  username: a1370071-10fb-452c-ba8d-e4f78a6d3ac4-bluemix
+  password: 0ef29e3da9743c6bac7d37812e500b7c441d54c15a38930b6830d3268cf1a679
+  url: https://a1370071-10fb-452c-ba8d-e4f78a6d3ac4-bluemix:0ef29e3da9743c6bac7d37812e500b7c441d54c15a38930b6830d3268cf1a679@a1370071-10fb-452c-ba8d-e4f78a6d3ac4-bluemix.cloudant.com

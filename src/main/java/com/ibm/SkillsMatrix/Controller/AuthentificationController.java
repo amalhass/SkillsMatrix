@@ -14,7 +14,7 @@ import com.ibm.SkillsMatrix.Bean.Person;
 import com.ibm.SkillsMatrix.Business.AuthentificationService;
 
 @RestController
-@RequestMapping("/auth")
+
 public class AuthentificationController {
 
 	@Autowired
@@ -22,7 +22,7 @@ public class AuthentificationController {
 	@Autowired
 	private AuthentificationService authentificationService;
 
-	@RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
+	@RequestMapping(value="/auth", method = RequestMethod.POST, headers = "Accept=application/json")
 	public void authentifier(final HttpServletRequest request, @RequestBody final Person user) {
 		final Person authentification = authentificationService.logIn(user.get_id(), user.getPassword());
 		if (authentification != null) {

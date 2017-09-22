@@ -16,14 +16,14 @@ angular.module('app.auth', [])
             },
             getUser: function () {
                 config = {
-                    url: '/auth/user',
+                    url: '/user',
                     method: "GET"
                 };
                 return $http(config);
             },
             deconnexion: function () {
                 config = {
-                    url: '/auth/deconnexion',
+                    url: '/deconnexion',
                     method: "GET"
                 };
                 return $http(config);
@@ -67,7 +67,8 @@ angular.module('app.auth', [])
                     "_id":"",
                     "firstName":"",
                     "lastName":"",
-                    "password":""
+                    "password":"",
+                    "_rev":""
 
                 };
                 $scope.openModal = function () {

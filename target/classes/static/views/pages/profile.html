@@ -9,9 +9,9 @@
                <form id="upload-file-form" >
 
                         <label for="upload-file-input">
-                    <img  class="profile-pic upload-button" ng-src="../images/{{imageName}}" width="150px" height="150px"/>
+                   <!-- <img  class="profile-pic upload-button" ng-src="../images/{{imageName}}" width="150px" height="150px"/>-->
                         </label>
-                    <input id="upload-file-input" type="file" name="uploadfile"  accept="image/*" style="display: none"/>
+                    <input id="upload-file-input" type="file" name="uploadfile"  accept="*" style="display: none"/>
                     </form>
                    <!-- <input type="file" id="file" />
                     <button onclick="uploadFile()">Upload</button>-->
@@ -721,7 +721,7 @@
             <div class="row">
                 <iframe name="hiddenFrame" class="hide"></iframe>
                 <form class="form-inline" method="POST" enctype="multipart/form-data"
-                      action="http://localhost:8080/person/upload" target="hiddenFrame">
+                      action="https://ibmsmatrix.mybluemix.net/person/upload" target="hiddenFrame">
                     <div>
                         <input class="col-xs-8" type="file" name="uploadedFile" style="padding-top: 29px;" ng-model="person.attachment">
 

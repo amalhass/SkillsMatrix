@@ -5,7 +5,7 @@
 
 angular.module('app')
     .factory('PersonService', ['$http', function ($http) {
-        var urlBase = 'http://localhost:8080/person';
+        var urlBase = '/person';
         var dataFactory = {};
 
         dataFactory.getAll = function () {

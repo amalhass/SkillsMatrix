@@ -49,24 +49,12 @@
 	</properties>
 
 
-	<build>
+ <build>
 		<plugins>
-    <plugin>
-      <groupId>io.fabric8</groupId>
-      <artifactId>docker-maven-plugin</artifactId>
-      <version>0.16.7</version>
-      <configuration>
-        <images>
-          <image>
-            <name>skillsmatrix:${project.version}</name>
-            <build>
-              <dockerFileDir>${project.basedir}</dockerFileDir>
-            </build>
-          </image>
-        </images>
-      </configuration>
-    </plugin>
-</plugins>
-	
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 </project>
